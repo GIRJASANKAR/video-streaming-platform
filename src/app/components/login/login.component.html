@@ -1,0 +1,52 @@
+<div class="flex bg justify-center items-center h-screen w-full">
+  <div class="main px-32 md:px-16 sm:px-8 pb-10 rounded-3xl">
+    <div class="sign pt-10 text-2xl font-bold text-center">Sign In</div>
+    <form class="flex pt-10 flex-col items-center" [formGroup]="login_form">
+      <mat-form-field appearance="outline"  class="w-96 sm:w-60">
+        <input
+          matInput
+          type="email"
+          placeholder="Enter your email"
+          formControlName="login"
+        />
+        <mat-error *ngIf="login_form.get('login')?.hasError('required')">
+          Email id is required</mat-error
+        >
+        <mat-error
+          *ngIf="
+            !login_form.get('login')?.hasError('required') &&
+            login_form.get('login')?.hasError('pattern')
+          "
+        >
+          Email id is invalid</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="pt-1 w-96 sm:w-60" >
+        <input
+          matInput
+          type="password"
+          placeholder="Enter your password"
+          formControlName="password"
+          name="password"
+        />
+        <mat-error *ngIf="login_form.get('password')?.hasError('required')">
+          Password is required</mat-error
+        >
+      </mat-form-field>
+
+      <div class="flex pt-3 gap-8 sm:justify-between items-center">
+        <div>
+          <button mat-raised-button color="accent" (click)="login()">
+            Login
+          </button>
+        </div>
+        <div>
+          <button mat-raised-button color="accent" [routerLink]="['/register']">
+            Register
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

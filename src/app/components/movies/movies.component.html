@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="bg-default flex md:flex-wrap items-center"  *ngIf="movieDetails;">
+  <div class="text-white max-w-3xl mx-auto px-4">
+    <div class="py-4 text-4xl text-white italic font-bold">
+      {{ movieDetails.title || '' }}
+    </div>
+    <div class="text-xl leading-relaxed">{{ movieDetails.overview }}</div>
+
+    <div class="my-10">
+      <a
+        class="no-underline"
+        href="https://www.themoviedb.org/video/play?key={{ key }}"
+        target="_blank"
+        ><span class="bg-red-600 text-white px-6 py-3 rounded-md"
+          >watch trailer</span
+        ></a
+      >
+    </div>
+
+    <div class="mt-10 font-thin">
+      {{ movieDetails.original_language | translate }} |
+      {{ movieDetails.status }} | {{ movieDetails.budget | currency : "INR" }} |
+      {{ movieDetails.release_date | date }}
+    </div>
+
+    <div class="font-thin pt-2">
+      <span *ngFor="let x of movieDetails.genres"> {{ x.name }} | </span>
+    </div>
+
+    <div class="font-thin pt-2">
+      <span *ngFor="let x of movieDetails.production_companies">
+        {{ x.name }} |
+      </span>
+    </div>
+
+    <div class="font-thin pt-2">{{ movieDetails.runtime | minutesToHour }}</div>
+
+    <div class="py-4 text-4xl text-white italic font-bold">
+      {{ movieDetails.tagline }}
+    </div>
+  </div>
+
+  <div>
+    <img
+      class="p-10 xl:p-4"
+      src="https://image.tmdb.org/t/p/original/{{ movieDetails.poster_path }}"
+    />
+  </div>
+</div>
+

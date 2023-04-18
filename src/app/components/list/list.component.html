@@ -1,0 +1,161 @@
+<app-header></app-header>
+<app-information></app-information>
+<div class="bg-default">
+  <div class=" mx-auto">
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let a of bannerResult">
+        <div class="carousel-inner">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.backdrop_path }}"
+          />
+        </div>
+        <div class="carousel-caption">
+          <h2>{{ a.original_title }}</h2>
+          <p>{{ a.overview }}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4  text">Top Rated Movies</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of topRatedMoviesResult">
+          <img
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+            [routerLink]="['/movie', a.id]"
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Trending Movies of Week</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of bannerResult">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Trending Movies of Today</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll mt-3 p-2 space-x-3">
+        <ng-container *ngFor="let t of trendingMovieResult">
+          <img
+            [routerLink]="['/movie', t.id]"
+            class="largeposter rounded-lg hover:ob"
+            src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Action Movies</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of actionMovieResult">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="largeposter rounded-lg"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">adventure Movies</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of adventureMovieResult">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="largeposter rounded-lg"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Animations Movies</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of animationMovieResult">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="largeposter rounded-lg"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Comedy Movies</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of comedyMovieResult">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="largeposter rounded-lg"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Documentary Movies</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of documentaryMovieResult">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="largeposter rounded-lg"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Science Fiction Movies</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of sciencefictionMovieResult">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="largeposter rounded-lg"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Thriller Movies</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of thrillerMovieResult">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="largeposter rounded-lg"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,79 @@
+<div class=" bg-default ">
+  <div class="pt-4 pb-2 px-10 sm:px-4 md:px-6 lg:px-8  mx-auto flex gap-2 justify-between  items-center">
+    <div class="w-36">
+      <img
+        [routerLink]="['/']"
+        class="cursor-pointer"
+        src="https://www.justwatch.com/appassets/img/logo/JustWatch-logo-large.webp"
+      />
+    </div>
+    <div>
+      <div class="flex text-white items-center gap-x-4 xl:hidden">
+        <div class=" cursor-pointer"  [routerLink]="['/']">Home</div>
+        <div class=" cursor-pointer"  [routerLink]="['/']">New</div>
+        <div class=" cursor-pointer"  [routerLink]="['/']">Popular</div>
+        <div class=" cursor-pointer"  [routerLink]="['/']">WatchList</div>
+        <div class=" xl:hidden cursor-pointer" [formGroup]="searchForm">
+          <mat-form-field appearance="outline" class="input-width my-form-field xl:w-96">
+            <mat-label class="text-white pl-3">Search for movies or TV Shows</mat-label>
+            <input class="text-white lg:hidden max-w-3xl"
+              formControlName="movieName"
+              matInput
+              (keyup.enter)="submitForm(); searchInput.value = ''"
+              #searchInput
+            />
+            <mat-icon matPrefix>search</mat-icon>
+          </mat-form-field>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="flex text-white items-center justify-between">
+      <button mat-raised-button color="accent" [routerLink]="['/login']">Sign In</button>
+      <div class="px-2 sm:hidden" [routerLink]="['/']">
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="fas"
+          data-icon="bars"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          style="
+            width: 20px;
+            font-size: 10px;
+            margin: 0px;
+            margin-inline-start: 3px;
+          "
+          data-v-1b39afd8=""
+        >
+          <path
+            fill="currentColor"
+            d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+            data-v-1b39afd8=""
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div #searchList *ngIf="searchResult?.length" class="searchbox mt-5 grid grid-cols-2 text-white">
+    <div  *ngFor="let s of searchResult">
+      <div class="px-4 flex justify-between cursor-pointer rounded-xl items-center hover:shadow-xl hover:bg-default hover:border" (click)="goToMovieDetails(s.id)">
+        <div class="w-10 rounded-full cursor-pointer mt-4 mb-4" *ngIf="s.poster_path">
+          <img
+            src="https://image.tmdb.org/t/p/original/{{ s.poster_path }}"
+          >
+        </div>
+        <div class="w-2/3 mt-4 mb-4">
+          <h5 class="text-lg font-bold">{{ s.title }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

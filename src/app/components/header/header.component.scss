@@ -1,0 +1,35 @@
+.input-width {
+  width: 600px;
+}
+.mat-input-element {
+  padding-left: 10px;
+}
+
+.my-form-field .mat-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+
+.searchbox {
+  height: 300px;
+  position: absolute;
+  top: 2%;
+  left: 30%;
+  border-radius: 8px;
+  background-color: #191e25;
+  box-shadow: 0 4px 8px 2px rgba(0, 5, 13, 0.5);
+  width: 60%;
+  overflow-y: scroll;
+}
+
+
+
+
+// @media only screen and (max-width: 1140px) {
+//   .input-width {
+//     width: 0px;
+//   }
+
+//   .my-form-field{
+//     display: none;
+//   }
+// }
