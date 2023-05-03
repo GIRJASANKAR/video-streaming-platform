@@ -21,6 +21,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { RegisterComponent } from './components/register/register.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NewComponent } from './components/horror/horror.component';
+import { TvShowsComponent } from './components/tv-shows/tv-shows.component';
+import { WatchlistComponent } from './components/watchlist/watchlist.component';
+import { TvDetailsComponent } from './components/tv-details/tv-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     NotFoundComponent,
     LoginComponent,
     RegisterComponent,
-
+    NewComponent,
+    TvShowsComponent,
+    WatchlistComponent,
+    TvDetailsComponent,
   ],
   imports: [
     BrowserModule,

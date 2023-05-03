@@ -1,0 +1,126 @@
+<app-header></app-header>
+<div class="bg-default">
+  <div class="px-8 py-4 max-container mx-auto sm:px-4">
+    <div class="flex text-3xl text-para">Tv Shows</div>
+    <div class="py-4 shadow-2xl">
+      <p class="text-base leading-relaxed text-para">
+        We’ve been enjoying a Golden Age of Television for well over a decade
+        now, and it’s been absolutely epic. Dramas like Breaking Bad and The
+        Wire have kept us on the edge of our seats. Sharp and subversive
+        comedies like Arrested Development and Parks and Recreation are
+        fantastic to binge watch. Even “genre” TV has been elevated to new
+        heights thanks to gorgeous and vivid shows like Lost and Game of
+        Thrones. There may be more great television on the air now than ever
+        before, but the truth is that television has always been a fantastic way
+        to tell thoughtful, slow-burn character stories, or to slowly unfurl a
+        tightly-wound mystery. ‘90s shows like The West Wing or The X-Files feel
+        just as entertaining and relevant today as they did when they debuted.
+        And our course it’s nearly impossible to overstate the importance and
+        influence of greats like I Love Lucy and The Andy Griffith Show.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-default">
+  <div class="mx-auto">
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let a of bannerResult">
+        <div class="carousel-inner">
+          <img
+          [routerLink]="['/tv', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.backdrop_path }}"
+          />
+        </div>
+        <div class="carousel-caption">
+          <h2>{{ a.original_name }}</h2>
+          <p>{{ a.overview }}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Action and Adventure TV Shows</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of actionAdventureTvShows">
+          <img
+          [routerLink]="['/tv', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">documentary TV Shows</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of documentaryTvShows">
+          <img
+             [routerLink]="['/tv', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Drama Tv Shows</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of dramaTvShows">
+          <img
+            [routerLink]="['/tv', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Family Tv Shows</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of familyTvShows">
+          <img
+            [routerLink]="['/tv', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Kids Tv Shows</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of kidsTvShows">
+          <img
+          [routerLink]="['/tv', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Comedy Tv Shows</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of comedyTvShows">
+          <img
+          [routerLink]="['/tv', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

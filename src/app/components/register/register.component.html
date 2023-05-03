@@ -1,14 +1,14 @@
 <div class="flex bg justify-center items-center h-screen w-full">
   <div class="main px-32 md:px-16 sm:px-8 pb-10 rounded-3xl">
     <div class="sign pt-10 text-2xl font-bold text-center">Register</div>
-    <form class="flex pt-10 flex-col items-center" [formGroup]="register_form">
+    <form class="flex pt-10 flex-col items-center" [formGroup]="registerForm">
       <mat-form-field appearance="outline" class="w-96 sm:w-60">
         <input
           matInput
           placeholder="Enter your first name"
           formControlName="name"
         />
-        <mat-error *ngIf="register_form.get('name')?.hasError('required')">
+        <mat-error *ngIf="registerForm.get('name')?.hasError('required')">
           Name is required</mat-error
         >
       </mat-form-field>
@@ -19,7 +19,7 @@
           placeholder="Enter your last name"
           formControlName="lastName"
         />
-        <mat-error *ngIf="register_form.get('lastName')?.hasError('required')">
+        <mat-error *ngIf="registerForm.get('lastName')?.hasError('required')">
           lastName is required</mat-error
         >
       </mat-form-field>
@@ -31,12 +31,12 @@
           formControlName="register_email"
         />
         <mat-error
-          *ngIf="register_form.get('register_email')?.hasError('required')"
+          *ngIf="registerForm.get('register_email')?.hasError('required')"
         >
           Email id is required</mat-error
         >
         <mat-error
-          *ngIf="register_form.get('register_email')?.hasError('pattern')"
+          *ngIf="registerForm.get('register_email')?.hasError('pattern')"
         >
           Email id is invalid</mat-error
         >
@@ -50,7 +50,7 @@
           formControlName="password"
           name="password"
         />
-        <mat-error *ngIf="register_form.get('password')?.hasError('required')">
+        <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
           Password is required</mat-error
         >
       </mat-form-field>

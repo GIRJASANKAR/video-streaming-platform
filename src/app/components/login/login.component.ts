@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required]],
   });
 
-  openSnackBar(message: string, action: string) {
+  open_snack_bar(message: string, action: string) {
     this._snackBar.open(message, action, {
       horizontalPosition: 'center',
       verticalPosition: 'bottom',
@@ -35,18 +35,16 @@ export class LoginComponent implements OnInit {
   login() {
     const val = this.login_form.value;
     if (val.login && val.password) {
-      this.authService.login(val.login, val.password).subscribe({
+      this.authService.loginUser(val.login, val.password).subscribe({
         next: (result: any) => {
-          console.log(result);
-          this.authService.expirytime = result.expiresIn;
-          console.log(this.authService.expirytime)
+          this.authService.expiry_time = result.expiresIn;
           localStorage.setItem('token', result.token);
           this.router.navigate(['/']);
-          this.openSnackBar('login successful', 'Session expire in 30 sec');
-          this.authService.autoLogout(this.authService.expirytime);
+          this.open_snack_bar('login successful', 'Enjoy');
+          this.authService.autoLogoutUser(this.authService.expiry_time);
         },
         error: (err) => {
-          this.openSnackBar(err.error.error, 'First Register');
+          this.open_snack_bar(err.error.error, 'First Register');
         },
       });
     }

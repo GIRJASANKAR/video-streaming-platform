@@ -1,0 +1,86 @@
+<app-header></app-header>
+<div class="bg-default">
+  <div class="px-8 py-4 max-container mx-auto sm:px-4">
+    <div class="flex text-3xl text-para">Horror</div>
+    <div class="py-4 shadow-2xl">
+      <p class="text-base leading-relaxed text-para">
+        Horror Films are unsettling films designed to frighten and panic, cause
+        dread and alarm, and to invoke our hidden worst fears, often in a
+        terrifying, shocking finale, while captivating and entertaining us at
+        the same time in a cathartic experience. Horror films effectively center
+        on the dark side of life, the forbidden, and strange and alarming
+        events. They deal with our most primal nature and its fears: our
+        nightmares, our vulnerability, our alienation, our revulsions, our
+        terror of the unknown, our fear of death and dismemberment, loss of
+        identity, or fear of sexuality.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-default">
+  <div class="mx-auto">
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let a of bannerResult">
+        <div class="carousel-inner">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.backdrop_path }}"
+          />
+        </div>
+        <div class="carousel-caption">
+          <h2>{{ a.original_title }}</h2>
+          <p>{{ a.overview }}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">upcomming Horror</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll  pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of upCommmingHrror">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Release After 2000 horror Movies by popularity</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll  pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of latestHorror">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Latest Horror Movies</h5>
+      <div class="flex overflow-y-hidden overflow-x-scroll  pt-3 p-2 space-x-3">
+        <ng-container *ngFor="let a of bannerResult">
+          <img
+            [routerLink]="['/movie', a.id]"
+            src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+            class="rounded-lg largeposter"
+            alt="..."
+          />
+        </ng-container>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+</div>

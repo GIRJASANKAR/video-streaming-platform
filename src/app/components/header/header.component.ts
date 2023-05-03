@@ -3,27 +3,50 @@ import {
   ElementRef,
   HostListener,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
+  AfterViewInit,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MoviesService } from '../../services/movies.service';
 import { Router } from '@angular/router';
 import { MovieSearchResult } from 'src/app/interfaces/movie-list.interface';
+import { AuthService } from 'src/app/services/auth.service';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { fromEvent, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  encapsulation : ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None,
 })
-export class HeaderComponent {
-  constructor(private movieService: MoviesService, private route: Router) {}
+export class HeaderComponent implements  AfterViewInit {
+  constructor(
+    private movieService: MoviesService,
+    private route: Router,
+    public auth: AuthService
+  ) {}
+
   searchResult!: MovieSearchResult[] | null;
   @ViewChild('searchList') searchboxRef!: ElementRef;
-
+  @ViewChild('searchInput') searchInput!: ElementRef;
   searchForm = new FormGroup({
-    movieName: new FormControl(),
+    movie_name: new FormControl(),
   });
+
+  ngAfterViewInit(): void {
+    const searchterm: Observable<string> = fromEvent(
+      this.searchInput.nativeElement,
+      'keyup'
+    ).pipe(
+      map((x: any) => x.target.value),
+      debounceTime(100),
+      distinctUntilChanged()
+    );
+    searchterm.subscribe((res) => {
+      this.submitForm(res);
+    });
+  }
 
   @HostListener('document:click', ['$event'])
   handleClick(event: MouseEvent) {
@@ -36,12 +59,10 @@ export class HeaderComponent {
     }
   }
 
-  submitForm() {
-    this.movieService
-      .getSearchMovie(this.searchForm.get('movieName')?.value)
-      .subscribe((result: any) => {
-        this.searchResult = result.results;
-      });
+  submitForm(val: String) {
+    this.movieService.getSearchMovie(val).subscribe((result: any) => {
+      this.searchResult = result.results;
+    });
   }
 
   goToMovieDetails(id: number) {

@@ -1,7 +1,7 @@
 <app-header></app-header>
 <app-information></app-information>
 <div class="bg-default">
-  <div class=" mx-auto">
+  <div class="mx-auto">
     <ngb-carousel>
       <ng-template ngbSlide *ngFor="let a of bannerResult">
         <div class="carousel-inner">
@@ -17,8 +17,8 @@
       </ng-template>
     </ngb-carousel>
 
-    <div class="bg-default pt-14">
-      <h5 class="text-white pl-4  text">Top Rated Movies</h5>
+    <div *ngIf="topRatedMoviesResult; else shimmer" class="bg-default pt-14">
+      <h5 class="text-white pl-4 text">Top Rated Movies</h5>
       <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
         <ng-container *ngFor="let a of topRatedMoviesResult">
           <img
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div class="bg-default pt-14">
+    <div class="bg-default pt-14" *ngIf="bannerResult; else shimmer">
       <h5 class="text-white pl-4 text">Trending Movies of Week</h5>
       <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
         <ng-container *ngFor="let a of bannerResult">
@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <div class="bg-default pt-14">
+    <div class="bg-default pt-14" *ngIf="trendingMovieResult; else shimmer">
       <h5 class="text-white pl-4 text">Trending Movies of Today</h5>
       <div class="flex overflow-y-hidden overflow-x-scroll mt-3 p-2 space-x-3">
         <ng-container *ngFor="let t of trendingMovieResult">
@@ -59,7 +59,7 @@
       </div>
     </div>
 
-    <div class="bg-default pt-14">
+    <div class="bg-default pt-14" *ngIf="actionMovieResult; else shimmer">
       <h5 class="text-white pl-4 text">Action Movies</h5>
       <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
         <ng-container *ngFor="let a of actionMovieResult">
@@ -73,7 +73,7 @@
       </div>
     </div>
 
-    <div class="bg-default pt-14">
+    <div class="bg-default pt-14" *ngIf="adventureMovieResult; else shimmer">
       <h5 class="text-white pl-4 text">adventure Movies</h5>
       <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
         <ng-container *ngFor="let a of adventureMovieResult">
@@ -87,7 +87,7 @@
       </div>
     </div>
 
-    <div class="bg-default pt-14">
+    <div class="bg-default pt-14" *ngIf="animationMovieResult; else shimmer">
       <h5 class="text-white pl-4 text">Animations Movies</h5>
       <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
         <ng-container *ngFor="let a of animationMovieResult">
@@ -101,7 +101,7 @@
       </div>
     </div>
 
-    <div class="bg-default pt-14">
+    <div class="bg-default pt-14" *ngIf="comedyMovieResult; else shimmer">
       <h5 class="text-white pl-4 text">Comedy Movies</h5>
       <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
         <ng-container *ngFor="let a of comedyMovieResult">
@@ -115,7 +115,7 @@
       </div>
     </div>
 
-    <div class="bg-default pt-14">
+    <div class="bg-default pt-14" *ngIf="documentaryMovieResult; else shimmer">
       <h5 class="text-white pl-4 text">Documentary Movies</h5>
       <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
         <ng-container *ngFor="let a of documentaryMovieResult">
@@ -129,7 +129,10 @@
       </div>
     </div>
 
-    <div class="bg-default pt-14">
+    <div
+      class="bg-default pt-14"
+      *ngIf="sciencefictionMovieResult; else shimmer"
+    >
       <h5 class="text-white pl-4 text">Science Fiction Movies</h5>
       <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
         <ng-container *ngFor="let a of sciencefictionMovieResult">
@@ -143,7 +146,7 @@
       </div>
     </div>
 
-    <div class="bg-default pt-14">
+    <div class="bg-default pt-14" *ngIf="thrillerMovieResult; else shimmer">
       <h5 class="text-white pl-4 text">Thriller Movies</h5>
       <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
         <ng-container *ngFor="let a of thrillerMovieResult">
@@ -159,3 +162,9 @@
   </div>
 </div>
 
+<ng-template #shimmer>
+    <div class="flex pt-3 p-2 space-x-3 overflow-y-hidden overflow-x-scroll">
+      <div *ngFor="let a of [1, 2, 3, 4, 5, 6, 7]" class="shimmer">
+      </div>
+    </div>
+</ng-template>

@@ -6,37 +6,41 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router) {}
-  public expirytime!:number;
-  register(email: string, password: string) {
-    return this.http.post('http://localhost:5000/register', {
+  constructor(private _http: HttpClient, private router: Router) {}
+  public expiry_time!:number;
+  registerUser(email: string, password: string) {
+    return this._http.post('http://localhost:5000/register', {
       email,
       password,
     });
   }
 
-  login(email: string, password: string) {
-    return this.http.post('http://localhost:5000/login', {
+  loginUser(email: string, password: string) {
+    return this._http.post('http://localhost:5000/login', {
       email,
       password,
     });
   }
 
-  profile() {
-    console.log('profile working');
+  profileUser() {
     let headers = new HttpHeaders().set(
       'Authorization',
       `bearer ${localStorage.getItem('token')}`
     );
-    return this.http.post('http://localhost:5000/profile', {}, { headers });
+    return this._http.post('http://localhost:5000/profile', {}, { headers });
   }
 
-  autoLogout(expireTime: number) {
+  autoLogoutUser(expireTime: number) {
     setTimeout(() => {
       localStorage.removeItem('token');
       this.router.navigate(['/login']);
-      console.log('its gets logout');
     }, expireTime);
+  }
+
+
+  logoutUser(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }
 

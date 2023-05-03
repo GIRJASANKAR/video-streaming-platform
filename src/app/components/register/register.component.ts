@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent  {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -18,9 +18,8 @@ export class RegisterComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
 
-  register_form = this.fb.group({
+  registerForm = this.fb.group({
     name: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     register_email: [
@@ -39,18 +38,24 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    const val = this.register_form.value;
+    const val = this.registerForm.value;
     if (val.register_email && val.password) {
-      this.authService.register(val.register_email, val.password).subscribe({
+      this.authService.registerUser(val.register_email, val.password).subscribe({
         next: (result: any) => {
           this.openSnackBar('Registered', result.message);
           if (val.register_email != null && val.password != null) {
-            this.authService.login(val.register_email, val.password).subscribe({
+            this.authService.loginUser(val.register_email, val.password).subscribe({
               next: (result: any) => {
-                this.authService.expirytime = result.expiresIn;
-                console.log(this.authService.expirytime)
+                console.log(result);
+                this.authService.expiry_time = result.expiresIn;
+                console.log(this.authService.expiry_time);
                 localStorage.setItem('token', result.token);
                 this.router.navigate(['/']);
+                this.openSnackBar(
+                  'login successful',
+                  'Enjoy'
+                );
+               this.authService.autoLogoutUser(this.authService.expiry_time);
               },
               error: (err) => {
                 this.openSnackBar(err.error.error, 'something went wrong');

@@ -17,14 +17,14 @@
         movies available online on streaming providers with monthly subscription
         services like
         <button
-          *ngIf="!show_content"
+          *ngIf="!showContent"
           class="text-red-200"
-          (click)="show_content = !show_content"
+          (click)="showContent = !showContent"
         >
           Read full
         </button>
-        <br *ngIf="!show_content" />
-        <span *ngIf="show_content">
+        <br *ngIf="!showContent" />
+        <span *ngIf="showContent">
           Netflix and Hotstar. You are searching for movies to rent or for
           movies to buy? Use our « Price » filter or check out the most popular
           providers for buying and renting movies: Google Play Movies and
@@ -46,22 +46,31 @@
       </p>
     </div>
 
-
-    <div class="carousel-container flex ">
-      <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="false" [wrap]="true">
+    <div class="carousel-container flex my-custom-class px-4">
+      <ngb-carousel
+        [showNavigationArrows]="true"
+        [showNavigationIndicators]="false"
+        [wrap]="true"
+      >
         <ng-template ngbSlide>
-          <div class="icon-container flex gap-6 ">
-            <img *ngFor="let icon of appIcons.slice(0, 13)" src="{{icon.icon}}" class="rounded-md sm:w-12 w-20">
+          <div class="icon-container flex gap-6">
+            <img
+              *ngFor="let icon of appIcons.slice(0, 13)"
+              src="{{ icon.icon }}"
+              class="rounded-md sm:w-12 w-20"
+            />
           </div>
         </ng-template>
         <ng-template ngbSlide>
           <div class="icon-container flex gap-6">
-            <img *ngFor="let icon of appIcons.slice(4, 17)" src="{{icon.icon}}" class="rounded-md sm:w-12 w-20">
+            <img
+              *ngFor="let icon of appIcons.slice(4, 17)"
+              src="{{ icon.icon }}"
+              class="rounded-md sm:w-12 w-20"
+            />
           </div>
         </ng-template>
       </ngb-carousel>
     </div>
-
-
   </div>
 </div>

@@ -1,0 +1,32 @@
+<div class="bg-default h-screen">
+  <app-header></app-header>
+
+  <div class="px-8 py-4 max-container mx-auto sm:px-4">
+    <div class="flex text-3xl text-para">Your Watchlist</div>
+    <div class="py-4 shadow-2xl">
+      <p class="text-base leading-relaxed text-para">
+        Your Watchlist is a great place to track the movie and TV shows you want
+        to watch. You can sort your Watchlist by the IMDb rating, popularity
+        score and arrange your movies in the order you want to see them.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-default">
+    <div class="mx-auto">
+      <div class="bg-default pt-14">
+        <h5 class="text-white pl-4 text">Your Watchlist</h5>
+        <div class="flex flex-wrap pt-3 p-2 space-x-3">
+          <ng-container *ngFor="let a of watchlist">
+            <img
+              [routerLink]="['/movie', a.id]"
+              src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+              class="rounded-lg largeposter"
+              alt="..."
+            />
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

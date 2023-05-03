@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="bg-default flex md:flex-wrap items-center" *ngIf="tv_show_details">
+  <div class="text-white max-w-3xl mx-auto px-4">
+    <div class="py-4 text-4xl text-white italic font-bold">
+      {{ tv_show_details.title || "" }}
+    </div>
+    <div class="text-xl leading-relaxed">{{ tv_show_details.overview }}</div>
+
+    <div class="my-10">
+      <a
+        class="no-underline cursor-pointer"
+        href="https://www.themoviedb.org/video/play?key={{ key }}"
+        target="_blank"
+        ><span class="bg-red-600 text-white px-6 py-3 rounded-md"
+          >watch trailer</span
+        ></a
+      >
+    </div>
+
+
+    <div class="mt-10 font-thin">
+      {{ tv_show_details.original_language | translate }} |
+      {{ tv_show_details.status }} |
+      {{ tv_show_details.budget | currency : "INR" }} |
+      {{ tv_show_details.release_date | date }}
+    </div>
+
+    <div class="font-thin pt-2">
+      <span *ngFor="let x of tv_show_details.genres"> {{ x.name }} | </span>
+    </div>
+
+    <div class="font-thin pt-2">
+      <span *ngFor="let x of tv_show_details.production_companies">
+        {{ x.name }} |
+      </span>
+    </div>
+
+    <div class="font-thin pt-2">
+      {{ tv_show_details.runtime | minutesToHour }}
+    </div>
+
+    <div class="py-4 text-4xl text-white italic font-bold">
+      {{ tv_show_details.tagline }}
+    </div>
+  </div>
+
+  <div>
+    <img
+      class="p-10 xl:p-4"
+      src="https://image.tmdb.org/t/p/original/{{ tv_show_details.poster_path }}"
+    />
+  </div>
+</div>

@@ -1,14 +1,14 @@
 <app-header></app-header>
-<div class="bg-default flex md:flex-wrap items-center"  *ngIf="movieDetails;">
+<div class="bg-default flex md:flex-wrap items-center" *ngIf="movie_details">
   <div class="text-white max-w-3xl mx-auto px-4">
     <div class="py-4 text-4xl text-white italic font-bold">
-      {{ movieDetails.title || '' }}
+      {{ movie_details.title || "" }}
     </div>
-    <div class="text-xl leading-relaxed">{{ movieDetails.overview }}</div>
+    <div class="text-xl leading-relaxed">{{ movie_details.overview }}</div>
 
     <div class="my-10">
       <a
-        class="no-underline"
+        class="no-underline cursor-pointer"
         href="https://www.themoviedb.org/video/play?key={{ key }}"
         target="_blank"
         ><span class="bg-red-600 text-white px-6 py-3 rounded-md"
@@ -17,34 +17,47 @@
       >
     </div>
 
+    <div class="my-10" *ngIf="!added_to_watchlist">
+      <button
+        mat-flat-button
+        [ngClass]="{ 'text-white': is_added }"
+        (click)="addToLocalStorage()"
+        [disabled]="is_added"
+      >
+        Add to watchlist
+      </button>
+    </div>
+
     <div class="mt-10 font-thin">
-      {{ movieDetails.original_language | translate }} |
-      {{ movieDetails.status }} | {{ movieDetails.budget | currency : "INR" }} |
-      {{ movieDetails.release_date | date }}
+      {{ movie_details.original_language | translate }} |
+      {{ movie_details.status }} |
+      {{ movie_details.budget | currency : "INR" }} |
+      {{ movie_details.release_date | date }}
     </div>
 
     <div class="font-thin pt-2">
-      <span *ngFor="let x of movieDetails.genres"> {{ x.name }} | </span>
+      <span *ngFor="let x of movie_details.genres"> {{ x.name }} | </span>
     </div>
 
     <div class="font-thin pt-2">
-      <span *ngFor="let x of movieDetails.production_companies">
+      <span *ngFor="let x of movie_details.production_companies">
         {{ x.name }} |
       </span>
     </div>
 
-    <div class="font-thin pt-2">{{ movieDetails.runtime | minutesToHour }}</div>
+    <div class="font-thin pt-2">
+      {{ movie_details.runtime | minutesToHour }}
+    </div>
 
     <div class="py-4 text-4xl text-white italic font-bold">
-      {{ movieDetails.tagline }}
+      {{ movie_details.tagline }}
     </div>
   </div>
 
   <div>
     <img
       class="p-10 xl:p-4"
-      src="https://image.tmdb.org/t/p/original/{{ movieDetails.poster_path }}"
+      src="https://image.tmdb.org/t/p/original/{{ movie_details.poster_path }}"
     />
   </div>
 </div>
-
