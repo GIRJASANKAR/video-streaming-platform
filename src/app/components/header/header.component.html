@@ -10,12 +10,12 @@
       />
     </div>
     <div>
-      <div class="flex text-white items-center gap-x-4 xl:hidden">
+      <div class="flex text-white items-center gap-x-4 xl:hidden " >
         <div class="cursor-pointer" [routerLink]="['/']">Home</div>
         <div class="cursor-pointer" [routerLink]="['/horror']">Horror</div>
         <div class="cursor-pointer" [routerLink]="['/tv-shows']">TV</div>
         <div class="cursor-pointer" [routerLink]="['/watchlist']">WatchList</div>
-        <div class="xl:hidden cursor-pointer" [formGroup]="searchForm">
+        <div class="xl:hidden l; cursor-pointer" [formGroup]="searchForm">
           <mat-form-field
             appearance="outline"
             class="input-width my-form-field xl:w-96"
@@ -41,7 +41,7 @@
       Log out
     </button>
    </div>
-      <div class="px-2" [routerLink]="['/']">
+      <div class="px-2 hidden sm:block" [routerLink]="['/']">
         <svg
           aria-hidden="true"
           focusable="false"

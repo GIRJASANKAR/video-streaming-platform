@@ -11,6 +11,7 @@ import { ListComponent } from './components/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MoviesComponent } from './components/movies/movies.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslatePipe } from './pipes/translate.pipe';
@@ -55,7 +56,8 @@ import { TvDetailsComponent } from './components/tv-details/tv-details.component
     ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

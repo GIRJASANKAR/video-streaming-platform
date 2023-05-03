@@ -16,7 +16,6 @@ export class TvDetailsComponent implements OnInit {
     private router: ActivatedRoute,
     private movies: MoviesService,
     private route: Router,
-    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
