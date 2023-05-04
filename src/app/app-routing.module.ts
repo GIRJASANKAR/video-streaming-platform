@@ -4,6 +4,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './shared/guard/auth.guard';
+import { IsLoginGuard } from './shared/guard/is-login.guard';
 
 const routes: Routes = [
   {
@@ -11,8 +12,8 @@ const routes: Routes = [
     loadChildren: () => import('./movies/movies.module').then((e) => e.MoviesModule),
     canActivate: [AuthGuard],
   },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login',canActivate: [IsLoginGuard], component: LoginComponent },
+  { path: 'register',canActivate: [IsLoginGuard], component: RegisterComponent },
   { path: '**', canActivate: [AuthGuard], component: NotFoundComponent },
 
 ];

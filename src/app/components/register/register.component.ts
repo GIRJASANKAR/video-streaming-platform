@@ -47,9 +47,7 @@ export class RegisterComponent  {
           if (val.register_email != null && val.password != null) {
             this.authService.loginUser(val.register_email, val.password).subscribe({
               next: (result: any) => {
-                console.log(result);
                 this.authService.expiry_time = result.expiresIn;
-                console.log(this.authService.expiry_time);
                 localStorage.setItem('token', result.token);
                 this.router.navigate(['/']);
                 this.openSnackBar(
