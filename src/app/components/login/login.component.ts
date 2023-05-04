@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { EMAIL_REGEX } from 'src/app/constant/login-constant';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { EMAIL_REGEX } from 'src/app/shared/constant/login-constant';
+
 
 @Component({
   selector: 'app-login',

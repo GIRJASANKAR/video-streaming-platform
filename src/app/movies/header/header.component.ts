@@ -7,12 +7,13 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MoviesService } from '../../services/movies.service';
 import { Router } from '@angular/router';
-import { MovieSearchResult } from 'src/app/interfaces/movie-list.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { fromEvent, Observable } from 'rxjs';
+import { MovieSearchResult } from 'src/app/shared/interfaces/movie-list.interface';
+import { MoviesService } from 'src/app/services/movies.service';
+
 
 @Component({
   selector: 'app-header',

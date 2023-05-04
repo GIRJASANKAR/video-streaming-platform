@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MovieDetails } from 'src/app/interfaces/movie-details.interface';
-import { MovieTrailerLink } from 'src/app/interfaces/movie-list.interface';
-import { MoviesService } from '../../services/movies.service';
+import { MoviesService } from 'src/app/services/movies.service';
+import { MovieDetails } from 'src/app/shared/interfaces/movie-details.interface';
+import { MovieTrailerLink } from 'src/app/shared/interfaces/movie-list.interface';
+
 
 @Component({
   selector: 'app-movies',

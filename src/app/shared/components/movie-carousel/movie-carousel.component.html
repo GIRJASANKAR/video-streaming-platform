@@ -1,0 +1,14 @@
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let a of dataItem">
+    <div class="carousel-inner">
+      <img
+        [routerLink]="['/movie', a.id]"
+        src="https://image.tmdb.org/t/p/original/{{ a.backdrop_path }}"
+      />
+    </div>
+    <div class="carousel-caption">
+      <h2>{{ a.original_title }}</h2>
+      <p>{{ a.overview }}</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

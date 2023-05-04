@@ -1,0 +1,16 @@
+<app-header></app-header>
+<app-information></app-information>
+<div class="bg-default">
+  <div class="mx-auto">
+    <app-movie-carousel
+      [dataItem]="serviceName.moviesData[0].moviesData"
+    ></app-movie-carousel>
+
+    <div *ngFor="let item of serviceName.moviesData">
+      <app-card-list
+        [title]="item.title"
+        [moviesList]="item.moviesData"
+      ></app-card-list>
+    </div>
+  </div>
+</div>

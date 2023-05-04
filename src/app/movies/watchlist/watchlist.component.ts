@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -6,19 +6,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './watchlist.component.html',
   styleUrls: ['./watchlist.component.scss']
 })
-export class WatchlistComponent implements OnInit {
+export class WatchlistComponent {
   watchlist: any[]=[];
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
     const movies=localStorage.getItem("movie");
     if(movies){
       this.watchlist=JSON.parse(movies);
     }
   }
-
-
-
-
 }
