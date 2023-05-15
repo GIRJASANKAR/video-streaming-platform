@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { MovieListResult } from 'src/app/shared/interfaces/movie-list.interface';
 
 
@@ -11,6 +11,7 @@ export class CardListComponent implements OnInit {
   constructor() { }
   @Input() title!:string;
   @Input() moviesList!:MovieListResult[];
+  @Input() choice!:any;
 
   ngOnInit(): void {
 

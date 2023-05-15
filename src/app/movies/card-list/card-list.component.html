@@ -1,21 +1,27 @@
-<div class="bg-default pt-14" *ngIf="moviesList; else shimmer">
-  <h5 class="text-white pl-4 text">{{title}}</h5>
+<div class="bg-default pt-14 image-container" *ngIf="moviesList; else shimmer">
+  <h5 class="text-white pl-4 text">{{ title }}</h5>
   <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
-    <ng-container *ngFor="let a of moviesList">
-      <img
-        [routerLink]="['/movie', a.id]"
-        src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+    <div *ngFor="let a of moviesList" class="width">
+      <div>
+        <img
+        [routerLink]="choice === 'movies' ? ['/movie', a.id] : ['/tv', a.id]"
+        appLazyLoad
+        [lazySrc]="'https://image.tmdb.org/t/p/original/' + a.poster_path"
+        [src]="'https://via.placeholder.com/200x280'"
         class="largeposter rounded-lg"
-        alt="..."
       />
-    </ng-container>
+      </div>
+    </div>
   </div>
 </div>
 
-
 <ng-template #shimmer>
   <div class="flex pt-3 p-2 space-x-3 overflow-y-hidden overflow-x-scroll">
-    <div *ngFor="let a of [1, 2, 3, 4, 5, 6, 7]" class="shimmer">
-    </div>
+    <div *ngFor="let a of [1, 2, 3, 4, 5, 6, 7]" class="shimmer"></div>
   </div>
 </ng-template>
+
+<!-- overflow-auto flex-nowrap -->
+<!-- <div class="p-4 text-sm text-center text-white">
+        {{a.overview}}
+      </div> -->

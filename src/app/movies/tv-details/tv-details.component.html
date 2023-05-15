@@ -2,23 +2,29 @@
 <div class="bg-default flex md:flex-wrap items-center" *ngIf="tv_show_details">
   <div class="text-white max-w-3xl mx-auto px-4">
     <div class="py-4 text-4xl text-white italic font-bold">
-      {{ tv_show_details.title || "" }}
+      {{ tv_show_details.original_name ||  tv_show_details.original_name || "" }}
     </div>
     <div class="text-xl leading-relaxed">{{ tv_show_details.overview }}</div>
 
     <div class="my-10">
       <a
         class="no-underline cursor-pointer"
-        href="https://www.themoviedb.org/video/play?key={{ key }}"
+        href={{tv_show_details.homepage}}
         target="_blank"
         ><span class="bg-red-600 text-white px-6 py-3 rounded-md"
-          >watch trailer</span
+          >Watch on Netflix</span
         ></a
       >
     </div>
+    <div *ngIf="tvShowId" class="md:hidden my-10">
+      <iframe width="650px" height="315"  [src]="getSafeUrl(trailer_url)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
 
 
-    <div class="mt-10 font-thin">
+
+    <div class="mt-4 font-thin">
+      number of episodes:  {{ tv_show_details.number_of_episodes }} <br>
+      number of seasons: {{ tv_show_details.number_of_seasons }} |
       {{ tv_show_details.original_language | translate }} |
       {{ tv_show_details.status }} |
       {{ tv_show_details.budget | currency : "INR" }} |

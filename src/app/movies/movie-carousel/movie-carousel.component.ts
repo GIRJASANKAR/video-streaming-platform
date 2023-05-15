@@ -9,6 +9,7 @@ import { MovieListResult } from 'src/app/shared/interfaces/movie-list.interface'
 })
 export class MovieCarouselComponent implements OnInit {
   @Input() dataItem!:MovieListResult[];
+  @Input() choice!:any;
   constructor() { }
   ngOnInit(): void {
   }

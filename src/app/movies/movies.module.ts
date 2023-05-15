@@ -20,6 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LazyLoadDirective } from '../shared/directives/lazy-load.directive';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CardListComponent,
     TranslatePipe,
     MinutesToHourPipe,
+    LazyLoadDirective,
     ],
   imports: [
     CommonModule,
@@ -45,6 +48,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatButtonModule,
     MatSnackBarModule,
     NgbModule,
+    MatTooltipModule
   ]
 })
 export class MoviesModule { }

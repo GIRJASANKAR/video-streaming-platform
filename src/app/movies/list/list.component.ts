@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  serviceName!: any;
+ public serviceName!: any;
+  public pathName:'movies'|'tv'='movies';
   constructor(
     public home: HomeService,
     public horror: HorrorService,
@@ -25,6 +26,7 @@ export class ListComponent implements OnInit {
         this.horror.apis_for_horror();
         this.serviceName = this.horror;
       } else if (path === 'tv-shows') {
+        this.pathName='tv';
         this.tv.apis_for_tv();
         this.serviceName = this.tv;
       } else {

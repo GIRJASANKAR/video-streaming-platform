@@ -9,17 +9,20 @@ import { IsLoginGuard } from './shared/guard/is-login.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./movies/movies.module').then((e) => e.MoviesModule),
+    loadChildren: () =>
+      import('./movies/movies.module').then((e) => e.MoviesModule),
     canActivate: [AuthGuard],
   },
-  { path: 'login',canActivate: [IsLoginGuard], component: LoginComponent },
-  { path: 'register',canActivate: [IsLoginGuard], component: RegisterComponent },
+  { path: 'login', canActivate: [IsLoginGuard], component: LoginComponent },
+  {
+    path: 'register',
+    canActivate: [IsLoginGuard],
+    component: RegisterComponent,
+  },
   { path: '**', canActivate: [AuthGuard], component: NotFoundComponent },
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-

@@ -6,16 +6,20 @@
     </div>
     <div class="text-xl leading-relaxed">{{ movie_details.overview }}</div>
 
-    <div class="my-10">
+    <!-- <div class="my-10">
       <a
         class="no-underline cursor-pointer"
-        href="https://www.themoviedb.org/video/play?key={{ key }}"
+        href="https://www.themoviedb.org/video/play?key={{ movieVideoId }}"
         target="_blank"
-        ><span class="bg-red-600 text-white px-6 py-3 rounded-md"
+        ><span class="bg-red-600 text-white px-6 py-3 rounded-md cursor-pointer"
           >watch trailer</span
         ></a
       >
-    </div>
+    </div> -->
+
+  <div *ngIf="movieVideoId" class="md:hidden my-10">
+    <iframe width="650px" height="315"  [src]="getSafeUrl(trailer_url)"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
 
     <div class="my-10" *ngIf="!added_to_watchlist">
       <button

@@ -3,13 +3,14 @@
 <div class="bg-default">
   <div class="mx-auto">
     <app-movie-carousel
-      [dataItem]="serviceName.moviesData[0].moviesData"
+      [dataItem]="serviceName.moviesData[0].moviesData" [choice]="pathName"
     ></app-movie-carousel>
 
     <div *ngFor="let item of serviceName.moviesData">
       <app-card-list
         [title]="item.title"
         [moviesList]="item.moviesData"
+        [choice]="pathName"
       ></app-card-list>
     </div>
   </div>

@@ -2,7 +2,7 @@
   <ng-template ngbSlide *ngFor="let a of dataItem">
     <div class="carousel-inner">
       <img
-        [routerLink]="['/movie', a.id]"
+        [routerLink]="choice === 'movies' ? ['/movie', a.id] : ['/tv', a.id]"
         src="https://image.tmdb.org/t/p/original/{{ a.backdrop_path }}"
       />
     </div>

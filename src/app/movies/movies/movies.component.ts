@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from 'src/app/services/movies.service';
 import { MovieDetails } from 'src/app/shared/interfaces/movie-details.interface';
 import { MovieTrailerLink } from 'src/app/shared/interfaces/movie-list.interface';
-
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-movies',
@@ -14,15 +14,17 @@ import { MovieTrailerLink } from 'src/app/shared/interfaces/movie-list.interface
 export class MoviesComponent implements OnInit {
   public movie_details!: MovieDetails;
   public movie_video!: MovieTrailerLink[];
-  public key!: number;
+  public movieVideoId!: number;
   public added_to_watchlist: any;
   public is_added=false;
+  public trailer_url= "https://www.youtube.com/embed/"
 
   constructor(
     private router: ActivatedRoute,
     private movies: MoviesService,
     private route: Router,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -31,6 +33,11 @@ export class MoviesComponent implements OnInit {
       this.movieDetails(paramId);
       this.movieVideo(paramId);
     });
+  }
+
+
+  public getSafeUrl(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   openSnackBar(message: string, action: string) {
@@ -59,7 +66,9 @@ export class MoviesComponent implements OnInit {
         this.movie_video = result?.results;
         this.movie_video.forEach((element: any) => {
           if (element.type == 'Trailer') {
-            this.key = element.key;
+            this.movieVideoId = element.key;
+            this.trailer_url="https://www.youtube.com/embed/"+this.movieVideoId;
+            console.log(this.trailer_url);
           }
         });
       },

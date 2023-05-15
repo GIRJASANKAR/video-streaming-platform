@@ -74,12 +74,6 @@ export class MoviesService {
     const url = `${this.base_url}/tv/${id}?api_key=${this.api_key}`;
     return this._http.get(url);
   }
-
-  public getMovieVideo(id: number | null) {
-    const url = `${this.base_url}/movie/${id}/videos?api_key=${this.api_key}`;
-    return this._http.get(url);
-  }
-
   getHorrorMovies() {
     const url = `${this.base_url}/discover/movie?api_key=${this.api_key}&with_genres=27`;
     return this._http.get(url);
@@ -94,6 +88,17 @@ export class MoviesService {
     const url = `${this.base_url}/discover/movie?api_key=${this.api_key}&primary_release_date.gte=${this.today}&with_genres=27`;
     return this._http.get(url);
   }
+
+  public getMovieVideo(id: number | null) {
+    const url = `${this.base_url}/movie/${id}/videos?api_key=${this.api_key}`;
+    return this._http.get(url);
+  }
+  public getTvShowsVideo(id: number | null) {
+    const url = `${this.base_url}/tv/${id}/videos?api_key=${this.api_key}`;
+    return this._http.get(url);
+  }
+
+
 
   getActionAdventureTvShows() {
     const url = `${this.base_url}/discover/tv?api_key=${this.api_key}&with_genres=10759`;
