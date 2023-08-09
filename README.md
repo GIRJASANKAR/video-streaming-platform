@@ -3,35 +3,37 @@
 "NextFlix" delivers an unparalleled movie and series streaming experience. Built with modern web technologies and harnessing the power of the TMDB API, this platform offers trending content, personalized watchlists, and a visually rich interface that adapts seamlessly across devices.
 
 
-## 🌟 Features
-# Dynamic Content: 
+# 🌟 Features
+## Dynamic Content: 
 Real-time integration with the TMDB API to showcase trending movies, TV shows, and series across various genres.
 
-# User Authentication:
+## User Authentication:
 Secure JWT-backed authentication with features like registration, login, and logout.
 
-# Responsive Design:
+## Responsive Design:
  A fluid interface that ensures impeccable user experience across devices.
 
-# Personalized Experience:
+## Personalized Experience:
  Add favorites to your watchlist and return to them any time.
 
-# Search & Navigate:
+## Search & Navigate:
  Dive into our extensive catalog and easily navigate through genres.
 
-# Visual Treat:
+## Visual Treat:
  Carousel displays, shimmer effects, and lazy-loaded images akin to industry leaders.
 
-# Optimized Performance:
+## Optimized Performance:
  Efficient image rendering with lazy-loading ensures faster page loads.
 
- 
+
+# 🚀 CineScape
+
+## Setup & Run the node-jwt project:
+ If you haven't already, clone and set up the node-jwt project.
+ Navigate to the node-jwt project directory and install its dependencies: `cd path-to-node-jwt, npm install node index.js` then Setup the CineScape project:
 
 
-
-
-
-# VideoStreamingPlatform
+# CineScape: Escape into Entertainment
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
