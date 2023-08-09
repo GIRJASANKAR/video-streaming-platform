@@ -39,3 +39,14 @@
   width:500px;
   z-index:99999;
 }
+
+
+/* To hide the scrollbar */
+.flex {
+  scrollbar-width: none;  /* For Firefox */
+  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+
+.flex::-webkit-scrollbar {
+  display: none;  /* For Chrome, Safari, and Opera */
+}
