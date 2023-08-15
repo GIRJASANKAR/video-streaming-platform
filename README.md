@@ -1,6 +1,6 @@
 # CineScape: Escape into Entertainment
 
-"NextFlix" delivers an unparalleled movie and series streaming experience. Built with modern web technologies and harnessing the power of the TMDB API, this platform offers trending content, personalized watchlists, and a visually rich interface that adapts seamlessly across devices.
+CineScape delivers an unparalleled movie and series streaming experience. Built with modern web technologies and harnessing the power of the TMDB API, this platform offers trending content, personalized watchlists, and a visually rich interface that adapts seamlessly across devices.
 
 
 # 🌟 Features
