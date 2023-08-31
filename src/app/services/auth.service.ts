@@ -9,14 +9,14 @@ export class AuthService {
   constructor(private _http: HttpClient, private router: Router) {}
   public expiry_time!:number;
   registerUser(email: string, password: string) {
-    return this._http.post('http://localhost:5000/register', {
+    return this._http.post('https://node-app-bpug.onrender.com/register', {
       email,
       password,
     });
   }
 
   loginUser(email: string, password: string) {
-    return this._http.post('http://localhost:5000/login', {
+    return this._http.post('https://node-app-bpug.onrender.com/login', {
       email,
       password,
     });
@@ -27,7 +27,7 @@ export class AuthService {
       'Authorization',
       `bearer ${localStorage.getItem('token')}`
     );
-    return this._http.post('http://localhost:5000/profile', {}, { headers });
+    return this._http.post('https://node-app-bpug.onrender.com/profile', {}, { headers });
   }
 
   autoLogoutUser(expireTime: number) {
