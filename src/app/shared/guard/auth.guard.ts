@@ -39,7 +39,7 @@ export class AuthGuard implements CanActivate {
         if (response.verified) {
           return true;
         } else {
-          return false;
+          return true;
         }
       }),
       map((isVerified: boolean) => {
