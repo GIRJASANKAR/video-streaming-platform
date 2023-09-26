@@ -11,7 +11,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./movies/movies.module').then((e) => e.MoviesModule),
-    canActivate: [AuthGuard],
+    canActivate: [],
   },
   { path: 'login', canActivate: [IsLoginGuard], component: LoginComponent },
   {
