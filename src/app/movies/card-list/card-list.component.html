@@ -1,4 +1,4 @@
-<div class="bg-default pt-14 image-container" *ngIf="moviesList && choice; else loading">
+<div class="bg-default pt-14 image-container" *ngIf="moviesList && choice ; else loading">
   <h5 class="text-white pl-4 text">{{ title }}</h5>
   <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
     <div *ngFor="let a of moviesList" class="width">
@@ -7,7 +7,7 @@
         appLazyLoad
         (click)="navigateToMovie(choice, a.id)"
         [lazySrc]="'https://image.tmdb.org/t/p/original/' + a.poster_path"
-        [src]="'https://via.placeholder.com/200x280'"
+        [src]="'assets/loading.jpeg'"
         class="largeposter rounded-lg"
       />
       </div>
