@@ -21,9 +21,10 @@
           class="text-red-200"
           (click)="showContent = !showContent"
         >
-          Read full
+          Read Full
         </button>
         <br *ngIf="!showContent" />
+
         <span *ngIf="showContent">
           Netflix and Hotstar. You are searching for movies to rent or for
           movies to buy? Use our « Price » filter or check out the most popular
@@ -43,6 +44,12 @@
           browse and easily find a specific movie or TV series to watch it
           legally online.
         </span>
+        <button  *ngIf="showContent"
+        class="text-red-200"
+        (click)="showContent = !showContent"
+         >
+        Read Less
+      </button>
       </p>
     </div>
 
