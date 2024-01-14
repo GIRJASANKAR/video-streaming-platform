@@ -1,4 +1,5 @@
-<app-header></app-header>
+<div *ngIf="!loader;else loading">
+  <app-header></app-header>
 <div class="bg-default flex md:flex-wrap items-center" *ngIf="movie_details">
   <div class="text-white max-w-3xl mx-auto px-4">
     <div class="py-4 text-4xl text-white italic font-bold">
@@ -65,3 +66,21 @@
     />
   </div>
 </div>
+</div>
+<ng-template #loading>
+  <div class="container">
+    <div class="row">
+      <div id="loader">
+          <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="loading"></div>
+      </div>
+    </div>
+  </div>
+</ng-template>
