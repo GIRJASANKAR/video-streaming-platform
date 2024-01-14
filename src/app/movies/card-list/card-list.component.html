@@ -1,11 +1,11 @@
-<div class="bg-default pt-14 image-container" *ngIf="moviesList; else shimmer">
+<div class="bg-default pt-14 image-container" *ngIf="moviesList && choice; else loading">
   <h5 class="text-white pl-4 text">{{ title }}</h5>
   <div class="flex overflow-y-hidden overflow-x-scroll pt-3 p-2 space-x-3">
     <div *ngFor="let a of moviesList" class="width">
       <div>
         <img
-        [routerLink]="choice === 'movies' ? ['/movie', a.id] : ['/tv', a.id]"
         appLazyLoad
+        (click)="navigateToMovie(choice, a.id)"
         [lazySrc]="'https://image.tmdb.org/t/p/original/' + a.poster_path"
         [src]="'https://via.placeholder.com/200x280'"
         class="largeposter rounded-lg"
@@ -14,10 +14,28 @@
     </div>
   </div>
 </div>
-
-<ng-template #shimmer>
+<!-- [routerLink]="choice === 'movies' ? ['/movie', a.id] : ['/tv', a.id]" -->
+<!-- <ng-template #loading>
   <div class="flex pt-3 p-2 space-x-3 overflow-y-hidden overflow-x-scroll">
     <div *ngFor="let a of [1, 2, 3, 4, 5, 6, 7]" class="shimmer"></div>
   </div>
-</ng-template>
+</ng-template> -->
 
+
+<ng-template #loading>
+  <div class="container">
+    <div class="row">
+      <div id="loader">
+          <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="loading"></div>
+      </div>
+    </div>
+  </div>
+</ng-template>

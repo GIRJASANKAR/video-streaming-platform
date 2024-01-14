@@ -1,6 +1,6 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { MovieListResult } from 'src/app/shared/interfaces/movie-list.interface';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-list',
@@ -8,7 +8,7 @@ import { MovieListResult } from 'src/app/shared/interfaces/movie-list.interface'
   styleUrls: ['./card-list.component.scss']
 })
 export class CardListComponent implements OnInit {
-  constructor() { }
+  constructor(private router: Router) { }
   @Input() title!:string;
   @Input() moviesList!:MovieListResult[];
   @Input() choice!:any;
@@ -17,7 +17,9 @@ export class CardListComponent implements OnInit {
 
   }
 
-
-
+  navigateToMovie(choice: string, movieId: number): void {
+    const route = choice === 'movies' ? ['/movie', movieId] : ['/tv', movieId];
+    this.router.navigate(route);
+  }
 
 }
