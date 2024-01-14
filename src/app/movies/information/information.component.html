@@ -60,20 +60,22 @@
         [wrap]="true"
       >
         <ng-template ngbSlide>
-          <div class="icon-container flex gap-6">
+          <div class="icon-container flex gap-6 cursor-pointer">
             <img
               *ngFor="let icon of appIcons.slice(0, 13)"
               src="{{ icon.icon }}"
               class="rounded-md sm:w-12 w-20"
+              (click)="openAppUrl(icon.url)"
             />
           </div>
         </ng-template>
         <ng-template ngbSlide>
-          <div class="icon-container flex gap-6">
+          <div class="icon-container flex gap-6 cursor-pointer">
             <img
               *ngFor="let icon of appIcons.slice(4, 17)"
               src="{{ icon.icon }}"
               class="rounded-md sm:w-12 w-20"
+              (click)="openAppUrl(icon.url)"
             />
           </div>
         </ng-template>
