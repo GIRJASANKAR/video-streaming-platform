@@ -11,13 +11,13 @@ const routes: Routes = [
   { path: '', component: ListComponent },
   { path: 'horror', canActivate: [AuthGuard], component: ListComponent },
   { path: 'tv-shows', canActivate: [AuthGuard], component: ListComponent },
-  { path: 'tv/:id', canActivate: [AuthGuard], component: TvDetailsComponent },
+  { path: 'tv/:id', component: TvDetailsComponent },
   {
     path: 'watchlist',
     canActivate: [AuthGuard],
     component: WatchlistComponent,
   },
-  { path: 'movie/:id', canActivate: [AuthGuard], component: MoviesComponent },
+  { path: 'movie/:id', component: MoviesComponent },
 ];
 
 @NgModule({
@@ -25,3 +25,12 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class MoviesRoutingModule { }
+
+
+
+// //   {
+//   path: 'watchlist',
+//   canActivate: [AuthGuard],
+//   component: WatchlistComponent,
+// },
+// { path: 'movie/:id', canActivate: [AuthGuard], component: MoviesComponent },
