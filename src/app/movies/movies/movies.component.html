@@ -1,5 +1,6 @@
-  <app-header></app-header>
-<div class="bg-default flex md:flex-wrap items-center" *ngIf="movie_details; else loading">
+<div *ngIf="movie_details; else loading">
+<app-header></app-header>
+<div class="bg-default flex md:flex-wrap items-center">
   <div class="text-white max-w-3xl mx-auto px-4">
     <div class="py-4 text-4xl text-white italic font-bold">
       {{ movie_details.title || "" }}
@@ -65,7 +66,7 @@
     />
   </div>
 </div>
-
+</div>
 <ng-template #loading>
   <div class="container">
     <div class="row">

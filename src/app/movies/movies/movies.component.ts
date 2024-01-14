@@ -18,7 +18,6 @@ export class MoviesComponent implements OnInit {
   public added_to_watchlist: any;
   public is_added=false;
   public trailer_url= "https://www.youtube.com/embed/"
-  public loader=true;
 
   constructor(
     private router: ActivatedRoute,
@@ -30,7 +29,6 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit() {
     this.router.paramMap.subscribe((params: any) => {
-      this.loader=false;
       let paramId = params?.params?.id;
       this.movieDetails(paramId);
       this.movieVideo(paramId);
