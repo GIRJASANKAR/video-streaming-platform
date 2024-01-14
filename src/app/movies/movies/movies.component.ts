@@ -87,6 +87,7 @@ export class MoviesComponent implements OnInit {
 
   addToLocalStorage() {
     this.is_added=true;
+    this.openSnackBar('Adding to watchlist, please wait', 'Thanks for patience');
     const watchlist_data = localStorage.getItem('movie');
     if (!watchlist_data) {
       return localStorage.setItem(
