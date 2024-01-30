@@ -9,12 +9,11 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 
 const routes: Routes = [
   { path: '', component: ListComponent },
-  { path: 'horror', canActivate: [AuthGuard], component: ListComponent },
-  { path: 'tv-shows', canActivate: [AuthGuard], component: ListComponent },
+  { path: 'horror', component: ListComponent },
+  { path: 'tv-shows', component: ListComponent },
   { path: 'tv/:id', component: TvDetailsComponent },
   {
     path: 'watchlist',
-    canActivate: [AuthGuard],
     component: WatchlistComponent,
   },
   { path: 'movie/:id', component: MoviesComponent },
@@ -34,3 +33,7 @@ export class MoviesRoutingModule { }
 //   component: WatchlistComponent,
 // },
 // { path: 'movie/:id', canActivate: [AuthGuard], component: MoviesComponent },
+
+// canActivate: [AuthGuard]
+// canActivate: [AuthGuard]
+// canActivate: [AuthGuard]
